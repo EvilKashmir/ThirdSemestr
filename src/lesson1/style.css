@@ -1,0 +1,89 @@
+body {
+    background: #ffffef;
+    margin: 0;
+    padding: 0;
+}
+.right-menu {
+    background: white;
+    border: 1px solid black;
+    border-bottom: hidden;
+    border-right: hidden;
+    box-sizing: border-box;
+    float: right;
+    margin: 5px 0 0 0;
+    padding: 0 0 0 10px;
+    width: 85%;
+}
+.end {
+    background: #e6e6fa;
+    clear: both;
+    color: dimgrey;
+    font-family: Courier New, cursive;
+    font-style: italic;
+    padding: 0 0 5px 0;
+    text-align: center;
+}
+.left-menu {
+    border: 1px hidden black;
+    border-top-style: solid;
+    box-sizing: border-box;
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    width: 15%;
+}
+a {
+    color: #0000ff;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+}
+ol a {
+    font-family: Times, Times New Roman, serif;
+}
+#first-article, #second-article, #third-article  {
+    margin-bottom: 3px;
+}
+.head-nav {
+    margin: 15px 0 0 0;
+    text-align: right;
+}
+.navigation {
+    border: 1px solid black;
+    padding: 5px;
+    width: fit-content;
+}
+.description {
+    margin: 10px 0 0 0;
+}
+.left-menu-main, .left-menu-lang {
+    list-style: none;
+    padding: 0 0 0 10px;
+}
+.head-link {
+    margin-right: 20px;
+}
+#search-line {
+    display: block;
+    float: right;
+    margin: 0 0 0 10px;
+}
+.left-menu-main li, .left-menu-lang li {
+    padding: 15px 0 0 0;
+}
+#left-menu-lang-change {
+    color: dimgrey;
+    margin: 30px 0 0 10px;
+}
+#main-icon {
+    float: left;
+    height: 32px;
+    width: 32px;
+}
+#name-span {
+    box-sizing: border-box;
+    float: left;
+    font-family: Bradley Hand, cursive;
+    font-size: 24px;
+    letter-spacing: 5px;
+    margin: 0 0 0 15px;
+}
