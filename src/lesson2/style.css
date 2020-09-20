@@ -1,0 +1,23 @@
+.fa-wheelchair-alt {
+    color: white;
+    margin: 0 10px 0 0;
+}
+.button {
+    margin: 30px auto;
+    position: relative;
+
+    display: block;
+    width: 200px;
+    height: 200px;
+    background: white;
+    border: black 1px solid;
+}
+.btn-group {
+    margin: 30px 0 0 0;
+    display: block;
+    text-align: center;
+}
+.btn.btn-secondary.btn-lg.all-colors {
+    display: block;
+    margin: 30px 30px 30px 30px;
+}

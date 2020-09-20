@@ -40,7 +40,7 @@ a {
 ol a {
     font-family: Times, Times New Roman, serif;
 }
-#first-article, #second-article, #third-article  {
+.first-article, .second-article, .third-article  {
     margin-bottom: 3px;
 }
 .head-nav {
@@ -65,7 +65,7 @@ ol a {
 #search-line {
     display: block;
     float: right;
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 10px;
 }
 .left-menu-main li, .left-menu-lang li {
     padding: 15px 0 0 0;
@@ -78,6 +78,7 @@ ol a {
     float: left;
     height: 32px;
     width: 32px;
+    margin: 0 0 0 5px;
 }
 #name-span {
     box-sizing: border-box;
@@ -87,3 +88,13 @@ ol a {
     letter-spacing: 5px;
     margin: 0 0 0 15px;
 }
+@media screen and (max-width: 300px) {
+    .navigation {
+        border: 1px solid black;
+        padding: 10px;
+        width: fit-content;
+    }
+    .description {
+        margin: 15px 0 0 0;
+    }  
+} 
