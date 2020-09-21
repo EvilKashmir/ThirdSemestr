@@ -1,7 +1,7 @@
-var color = ['green', 'yellow', 'red'];
-var index = 0;
+color = ['green', 'yellow', 'red'];
+index = 0;
 
-function change_color(color) {
+function changeColor(color) {
     document.getElementById('btn-color').style.background = color;
 }
 
