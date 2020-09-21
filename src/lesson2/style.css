@@ -2,6 +2,9 @@
     color: white;
     margin: 0 10px 0 0;
 }
+.fa-search {
+    color: white;
+}
 .button {
     margin: 30px auto;
     position: relative;
