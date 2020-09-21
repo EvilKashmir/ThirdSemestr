@@ -19,7 +19,7 @@
     margin: 30px 0 0 0;
     text-align: center;
 }
-.btn.btn-secondary.btn-lg.all-colors {
+.btn-secondary {
     display: block;
     margin: 30px 30px 30px 30px;
 }
