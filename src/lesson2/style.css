@@ -5,7 +5,7 @@
 .fa-search {
     color: white;
 }
-.button {
+#btn-color {
     background: white;
     border: black 1px solid;
     display: block;
