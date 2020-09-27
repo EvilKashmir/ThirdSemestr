@@ -1,12 +1,12 @@
 #field {
-	height: 80vh;
 	border: 4px solid black;
+	height: 80vh;
 	position: relative;
 }
 
 #dvd {
-	position: absolute;
 	cursor: pointer;
+	height: 70px;
+	position: absolute;
 	width: 100px;
-	height: 70px;	
 }
