@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .right-menu {
     background: white;
     border: 1px solid black;
@@ -14,6 +15,7 @@ body {
     padding: 0 0 0 10px;
     width: 85%;
 }
+
 .end {
     background: #e6e6fa;
     clear: both;
@@ -23,6 +25,7 @@ body {
     padding: 0 0 5px 0;
     text-align: center;
 }
+
 .left-menu {
     border: 1px hidden black;
     border-top-style: solid;
@@ -32,54 +35,67 @@ body {
     margin-top: 5px;
     width: 15%;
 }
+
 a {
     color: #0000ff;
     font-family: Helvetica, sans-serif;
     text-decoration: none;
 }
+
 ol a {
     font-family: Times, Times New Roman, serif;
 }
-.first-article, .second-article, .third-article  {
+
+.first-article, .second-article, .third-article {
     margin-bottom: 3px;
 }
+
 .head-nav {
     margin: 15px 0 0 0;
     text-align: right;
 }
+
 .navigation {
     border: 1px solid black;
     padding: 5px;
     width: fit-content;
 }
+
 .description {
     margin: 10px 0 0 0;
 }
+
 .left-menu-main, .left-menu-lang {
     list-style: none;
     padding: 0 0 0 10px;
 }
+
 .head-link {
     margin-right: 20px;
 }
+
 #search-line {
     display: block;
     float: right;
     margin: 0 10px 0 10px;
 }
+
 .left-menu-main li, .left-menu-lang li {
     padding: 15px 0 0 0;
 }
+
 #left-menu-lang-change {
     color: dimgrey;
     margin: 30px 0 0 10px;
 }
+
 #main-icon {
     float: left;
     height: 32px;
     width: 32px;
     margin: 0 0 0 5px;
 }
+
 #name-span {
     box-sizing: border-box;
     float: left;
@@ -88,13 +104,15 @@ ol a {
     letter-spacing: 5px;
     margin: 0 0 0 15px;
 }
+
 @media screen and (max-width: 300px) {
     .navigation {
         border: 1px solid black;
         padding: 10px;
         width: fit-content;
     }
+
     .description {
         margin: 15px 0 0 0;
-    }  
+    }
 } 

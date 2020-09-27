@@ -2,9 +2,11 @@
     color: white;
     margin: 0 10px 0 0;
 }
+
 .fa-search {
     color: white;
 }
+
 #btn-color {
     background: white;
     border: black 1px solid;
@@ -14,11 +16,13 @@
     position: relative;
     width: 200px;
 }
+
 .btn-group {
     display: block;
     margin: 30px 0 0 0;
     text-align: center;
 }
+
 .btn-secondary {
     display: block;
     margin: 30px 30px 30px 30px;
