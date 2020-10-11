@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,10 +18,10 @@
 </head>
 <body>
 <form method="post" action="/register">
-    <input placeholder="name" class="input-text" name="name" type="text">
-    <input placeholder="email" class="input-text" name="email" type="text">
-    <input placeholder="password" class="input-text" name="password" type="password">
-    <input placeholder="repeat password" class="input-text" name="password-repeat" type="password">
+    <t:input placeholder="name" name="name" type="text"></t:input>
+    <t:input placeholder="email" name="email" type="text"></t:input>
+    <t:input placeholder="password" name="password" type="password"></t:input>
+    <t:input placeholder="repeat_password" name="password-repeat" type="password"></t:input>
     <label><input type="checkbox" name="apply" value="true"/> Apply data processing condition</label>
     <input type="submit">
 </form>

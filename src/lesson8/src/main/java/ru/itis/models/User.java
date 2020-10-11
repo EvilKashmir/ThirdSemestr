@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.models;
 
 public class User {
     private String name;

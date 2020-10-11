@@ -1,4 +1,6 @@
-ru\itis\MyWriter.class
-ru\itis\RegistrationFilter.class
-ru\itis\User.class
-ru\itis\RegistrationServlet.class
+ru\itis\filters\RegistrationFilter.class
+ru\itis\models\User.class
+ru\itis\servlets\RegistrationServlet.class
+ru\itis\utils\Check.class
+ru\itis\servlets\MainServlet.class
+ru\itis\utils\MyWriter.class

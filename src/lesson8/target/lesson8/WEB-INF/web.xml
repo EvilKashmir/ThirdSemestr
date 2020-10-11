@@ -6,15 +6,23 @@
          version="4.0">
   <servlet>
     <servlet-name>registrationServlet</servlet-name>
-    <servlet-class>ru.itis.RegistrationServlet</servlet-class>
+    <servlet-class>ru.itis.servlets.RegistrationServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>registrationServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>mainServlet</servlet-name>
+    <servlet-class>ru.itis.servlets.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mainServlet</servlet-name>
+    <url-pattern>/main</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>registrationFilter</filter-name>
-    <filter-class>ru.itis.RegistrationFilter</filter-class>
+    <filter-class>ru.itis.filters.RegistrationFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>registrationFilter</filter-name>

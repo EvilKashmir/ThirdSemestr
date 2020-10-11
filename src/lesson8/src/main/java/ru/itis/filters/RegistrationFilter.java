@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.filters;
 
 
 import javax.servlet.*;

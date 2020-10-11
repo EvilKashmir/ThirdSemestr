@@ -1,6 +1,6 @@
-package ru.itis;
+package ru.itis.utils;
 
-import au.com.bytecode.opencsv.CSVWriter;
+import ru.itis.models.User;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class MyWriter {
 
     public void write() throws IOException {
 
-        String path = "D:\\JavaProjects\\ThirdSem\\src\\lesson8\\src\\main\\java\\ru\\itis\\data.csv";
+        String path = "D:\\JavaProjects\\ThirdSem\\src\\lesson8\\src\\main\\resources\\data.csv";
         au.com.bytecode.opencsv.CSVWriter writer = new au.com.bytecode.opencsv.CSVWriter(new FileWriter(path, true));
         String[] record = (user.getName() + "," + user.getEmail() + "," + user.getPassword()).split(",");
         writer.writeNext(record);
