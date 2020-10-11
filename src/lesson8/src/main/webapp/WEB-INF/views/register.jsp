@@ -16,7 +16,7 @@
     <title>Registration</title>
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="/register">
     <input placeholder="name" class="input-text" name="name" type="text">
     <input placeholder="email" class="input-text" name="email" type="text">
     <input placeholder="password" class="input-text" name="password" type="password">
