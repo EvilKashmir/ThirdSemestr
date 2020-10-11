@@ -29,6 +29,6 @@ public class RegistrationServlet extends HttpServlet {
             MyWriter myWriter = new MyWriter(user);
             myWriter.write();
         }
-        resp.sendRedirect("/main");
+        resp.sendRedirect(req.getContextPath() + "/main");
     }
 }

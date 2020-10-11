@@ -17,7 +17,7 @@
     <title>Registration</title>
 </head>
 <body>
-<form method="post" action="/register">
+<form method="post" action="${pageContext.request.contextPath}/register">
     <t:input placeholder="name" name="name" type="text"></t:input>
     <t:input placeholder="email" name="email" type="text"></t:input>
     <t:input placeholder="password" name="password" type="password"></t:input>

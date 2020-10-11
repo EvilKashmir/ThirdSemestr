@@ -1,4 +1,4 @@
-<%@tag description="Wrapper Tag" pageEncoding="UTF-8"%>
+<%@tag description="Wrapper Tag" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -24,4 +24,5 @@
     <hr>
     <b>Copyrighted ©EvilKashmir</b>
 </footer>
-</body></html>
+</body>
+</html>
