@@ -105,14 +105,8 @@ ol a {
     margin: 0 0 0 15px;
 }
 
-@media screen and (max-width: 300px) {
-    .navigation {
-        border: 1px solid black;
-        padding: 10px;
-        width: fit-content;
-    }
-
-    .description {
-        margin: 15px 0 0 0;
+@media (max-width: 500px) {
+    a {
+        font-size: 10px;
     }
 } 

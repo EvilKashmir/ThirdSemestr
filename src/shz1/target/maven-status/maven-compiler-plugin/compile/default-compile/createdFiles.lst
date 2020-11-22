@@ -1,0 +1,3 @@
+ru\itis\controllers\MainServlet.class
+ru\itis\utils\RandomString.class
+ru\itis\controllers\CaptchaServlet.class

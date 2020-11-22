@@ -14,7 +14,7 @@ public class MyWriter {
     public void write() throws IOException {
 
         String path = "D:\\JavaProjects\\ThirdSem\\src\\lesson7\\src\\main\\java\\ru\\itis\\data.csv";
-        au.com.bytecode.opencsv.CSVWriter writer = new au.com.bytecode.opencsv.CSVWriter(new FileWriter(path, true));
+        CSVWriter writer = new au.com.bytecode.opencsv.CSVWriter(new FileWriter(path, true));
         String[] record = (user.getName() + "," + user.getEmail() + "," + user.getPassword()).split(",");
         writer.writeNext(record);
         writer.close();
