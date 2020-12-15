@@ -5,14 +5,13 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
     private Graphics2D graphics;
-    private JFrame frame;
-    private JPanel panel;
+    private JPanel mainPanel;
     private JMenuBar menuBar;
     private JMenu menu;
     private JMenuItem menuItem;
@@ -30,7 +29,7 @@ public class Main {
     }
 
     public void initGUI() {
-        frame = new JFrame("Window");
+        JFrame frame = new JFrame("Window");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Create the menu bar.
@@ -74,13 +73,32 @@ public class Main {
         //Exit menu item
         menu.addSeparator();
         menuItem = new JMenuItem("Exit");
-        menuItem.addActionListener(new ExitListener());
+        menuItem.addActionListener(e -> System.exit(0));
         menu.add(menuItem);
 
         //Build second menu in the menu bar.
         menu = new JMenu("About");
         menuBar.add(menu);
-        menu.addMenuListener(new AboutListener());
+        menu.addMenuListener(new MenuListener() {
+            private JFrame aboutFrame;
+
+            @Override
+            public void menuSelected(MenuEvent e) {
+                aboutFrame = new JFrame("About");
+                aboutFrame.setBounds(600, 300, 500, 500);
+                aboutFrame.setVisible(true);
+                aboutFrame.setAlwaysOnTop(true);
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+                aboutFrame.dispose();
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+            }
+        });
         frame.setJMenuBar(menuBar);
 
         //Build rightPanel
@@ -89,56 +107,98 @@ public class Main {
         rightPanel.setLayout(gridLayout);
         JButton drawButton = new JButton("Draw square");
         rightPanel.add(drawButton);
-        drawButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int width = panel.getSize().width;
-                int height = panel.getSize().height;
-                shape = new Rectangle((width / 4), 30 + (height / 4), width / 2, height / 2);
-                graphics.setColor(Color.PINK);
-                graphics.fill(shape);
+        drawButton.addActionListener(e -> {
+            int width = mainPanel.getSize().width;
+            int height = mainPanel.getSize().height;
+            shape = new Rectangle((width / 4), 30 + (height / 4), width / 2, height / 2);
+            graphics.setColor(Color.PINK);
+            graphics.fill(shape);
 
-            }
         });
         JButton spinButton = new JButton("Spin Right Round");
         rightPanel.add(spinButton);
-        spinButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                status = !status;
-                new Thread(() -> {
-                    while (true) {
-                        if (status) {
-
-                            break;
-                        }
-                        panel.repaint();
-                        SwingUtilities.invokeLater(new Runnable() {
-                            public void run() {
-                                graphics.rotate(Math.toRadians(15), panel.getSize().width / 2, panel.getSize().height / 2);
-                                graphics.draw(shape);
-                                graphics.setColor(Color.PINK);
-                                graphics.fill(shape);
-                            }
-                        });
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException interruptedException) {
-                            interruptedException.printStackTrace();
-                        }
+        spinButton.addActionListener(e -> {
+            status = !status;
+            new Thread(() -> {
+                while (true) {
+                    if (status) {
+                        break;
                     }
-                }).start();
-            }
+                    mainPanel.repaint();
+                    menuBar.repaint();
+                    SwingUtilities.invokeLater(() -> {
+                        graphics.rotate(Math.toRadians(15), mainPanel.getSize().width / 2, mainPanel.getSize().height / 2);
+                        graphics.draw(shape);
+                        graphics.setColor(Color.PINK);
+                        graphics.fill(shape);
+                    });
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                }
+            }).start();
         });
         JButton printButton = new JButton("Print Form");
         rightPanel.add(printButton);
+        printButton.addActionListener(e -> {
+            List<Component> componentList = new LinkedList<>();
+            mainPanel.repaint();
+
+            JLabel formLabel = new JLabel("Form");
+            formLabel.setBounds(220, 68, 46, 14);
+            mainPanel.add(formLabel);
+            componentList.add(formLabel);
+
+            JLabel emailLabel = new JLabel("Email");
+            emailLabel.setBounds(65, 115, 100, 20);
+            mainPanel.add(emailLabel);
+            componentList.add(emailLabel);
+
+            JTextField emailText = new JTextField();
+            emailText.setBounds(150, 112, 250, 20);
+            mainPanel.add(emailText);
+            emailText.setColumns(10);
+            componentList.add(emailText);
+
+            JLabel passwordLabel = new JLabel("Password");
+            passwordLabel.setBounds(65, 150, 100, 20);
+            mainPanel.add(passwordLabel);
+            componentList.add(passwordLabel);
+
+            JTextField passwordText = new JTextField();
+            passwordText.setBounds(150, 150, 250, 20);
+            mainPanel.add(passwordText);
+            passwordText.setColumns(10);
+            componentList.add(passwordText);
+
+            JButton clearButton = new JButton("Clear");
+            clearButton.addActionListener(s -> emailText.setText(""));
+            componentList.add(clearButton);
+            clearButton.setBounds(300, 200, 100, 25);
+            mainPanel.add(clearButton);
+
+            JButton submitButton = new JButton("Submit");
+            componentList.add(submitButton);
+            submitButton.addActionListener(p -> {
+                for (Component component : componentList) {
+                    mainPanel.remove(component);
+                }
+                mainPanel.repaint();
+            });
+
+            submitButton.setBounds(65, 200, 100, 25);
+            mainPanel.add(submitButton);
+        });
         rightPanel.setBackground(Color.LIGHT_GRAY);
         rightPanel.setPreferredSize(dim);
         frame.getContentPane().add(rightPanel, BorderLayout.EAST);
 
         //Build mainPanel
-        panel = new JPanel();
-        panel.setBackground(Color.WHITE);
-        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        mainPanel = new JPanel();
+        mainPanel.setBackground(Color.WHITE);
+        frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
 
         //Build bottomPanel and status
         JPanel bottomPanel = new JPanel();
@@ -150,29 +210,5 @@ public class Main {
         frame.setBounds(10, 10, 1900, 1000);
         frame.setVisible(true);
         graphics = (Graphics2D) frame.getGraphics();
-    }
-
-    private class ExitListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            System.exit(0);
-        }
-    }
-
-    private class AboutListener implements MenuListener {
-        private JFrame aboutFrame;
-
-        public void menuSelected(MenuEvent e) {
-            aboutFrame = new JFrame("About");
-            aboutFrame.setBounds(600, 300, 500, 500);
-            aboutFrame.setVisible(true);
-            aboutFrame.setAlwaysOnTop(true);
-        }
-
-        public void menuDeselected(MenuEvent e) {
-            aboutFrame.dispose();
-        }
-
-        public void menuCanceled(MenuEvent e) {
-        }
     }
 }
