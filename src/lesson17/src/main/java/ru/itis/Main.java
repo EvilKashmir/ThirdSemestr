@@ -5,6 +5,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -105,17 +107,17 @@ public class Main {
         JPanel rightPanel = new JPanel();
         GridLayout gridLayout = new GridLayout(10, 0, 20, 20);
         rightPanel.setLayout(gridLayout);
-        JButton drawButton = new JButton("Draw square");
+        JButton drawButton = new JButton("Draw");
         rightPanel.add(drawButton);
         drawButton.addActionListener(e -> {
             int width = mainPanel.getSize().width;
             int height = mainPanel.getSize().height;
-            shape = new Rectangle((width / 4), 30 + (height / 4), width / 2, height / 2);
+            shape = new Rectangle((width / 3), (height / 3), width / 3, height / 3);
             graphics.setColor(Color.PINK);
             graphics.fill(shape);
 
         });
-        JButton spinButton = new JButton("Spin Right Round");
+        JButton spinButton = new JButton("Spin");
         rightPanel.add(spinButton);
         spinButton.addActionListener(e -> {
             status = !status;
@@ -125,9 +127,8 @@ public class Main {
                         break;
                     }
                     mainPanel.repaint();
-                    menuBar.repaint();
                     SwingUtilities.invokeLater(() -> {
-                        graphics.rotate(Math.toRadians(15), mainPanel.getSize().width / 2, mainPanel.getSize().height / 2);
+                        graphics.rotate(Math.toRadians(15), mainPanel.getSize().width/2.f, mainPanel.getSize().height/2.f);
                         graphics.draw(shape);
                         graphics.setColor(Color.PINK);
                         graphics.fill(shape);
@@ -140,7 +141,7 @@ public class Main {
                 }
             }).start();
         });
-        JButton printButton = new JButton("Print Form");
+        JButton printButton = new JButton("Form");
         rightPanel.add(printButton);
         printButton.addActionListener(e -> {
             List<Component> componentList = new LinkedList<>();
@@ -174,7 +175,10 @@ public class Main {
             componentList.add(passwordText);
 
             JButton clearButton = new JButton("Clear");
-            clearButton.addActionListener(s -> emailText.setText(""));
+            clearButton.addActionListener(e1 -> {
+                emailText.setText("");
+                passwordText.setText("");
+            });
             componentList.add(clearButton);
             clearButton.setBounds(300, 200, 100, 25);
             mainPanel.add(clearButton);
